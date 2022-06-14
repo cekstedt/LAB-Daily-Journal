@@ -48,10 +48,19 @@ app.get("/compose", function(req, res) {
 });
 
 app.get("/posts/:postName", function(req, res) {
+  let flag = 0;
   for (post of posts) {
-    if (post.title.toLowerCase() === req.params.postName.toLowerCase()) {
-      console.log("Match found!");
+    if (_.lowerCase(post.title) === _.lowerCase(req.params.postName)) {
+      res.render("post", {
+        postTitle: post.title,
+        postContent: post.content
+      });
+    } else {
+      flag++;
     }
+  }
+  if (flag === posts.length) {
+    res.status(404).render("404");
   }
 });
 
@@ -64,6 +73,12 @@ app.post("/compose", function(req, res) {
   };
   posts.push(post);
   res.redirect("/");
+});
+
+// Handle 404 requests.
+
+app.all("*", function(req, res) {
+  res.status(404).render("404");
 });
 
 // Initialize server.
