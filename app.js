@@ -48,18 +48,16 @@ app.get("/compose", function(req, res) {
 });
 
 app.get("/posts/:postName", function(req, res) {
-  let flag = 0;
-  for (post of posts) {
-    if (_.lowerCase(post.title) === _.lowerCase(req.params.postName)) {
-      res.render("post", {
-        postTitle: post.title,
-        postContent: post.content
-      });
-    } else {
-      flag++;
-    }
-  }
-  if (flag === posts.length) {
+  const foundPost = _.find(posts, function(post) {
+    return _.lowerCase(post.title) === _.lowerCase(req.params.postName);
+  });
+
+  if (foundPost) {
+    res.render("post", {
+      postTitle: post.title,
+      postContent: post.content
+    });
+  } else {
     res.status(404).render("404");
   }
 });
