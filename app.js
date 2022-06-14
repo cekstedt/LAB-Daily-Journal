@@ -46,6 +46,14 @@ app.get("/compose", function(req, res) {
   res.render("compose");
 });
 
+app.get("/posts/:postName", function(req, res) {
+  for (post of posts) {
+    if (post.title.toLowerCase() === req.params.postName.toLowerCase()) {
+      console.log("Match found!");
+    }
+  }
+});
+
 // POST routes.
 
 app.post("/compose", function(req, res) {
@@ -56,7 +64,6 @@ app.post("/compose", function(req, res) {
   posts.push(post);
   res.redirect("/");
 });
-
 
 // Initialize server.
 
