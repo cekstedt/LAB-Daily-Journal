@@ -5,7 +5,11 @@
 
 <% for (post of posts) { %>
   <h1> <%= post.title %> </h1>
-  <p> <%= post.content %> </p>
+  <% if (post.content.length >= 100) { %>
+    <p> <%= post.content.slice(0, 100) + "..." %> </p>
+  <% } else { %>
+    <p> <%= post.content %> </p>
+  <% } %>
 <% } %>
 
 <%- include("partials/footer"); -%>

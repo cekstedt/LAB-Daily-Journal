@@ -59,7 +59,7 @@ app.get("/posts/:postName", function(req, res) {
     });
   } else {
     res.status(404).render("404");
-  }
+  };
 });
 
 // POST routes.
