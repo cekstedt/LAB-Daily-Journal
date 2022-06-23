@@ -74,8 +74,11 @@ app.post("/compose", function(req, res) {
     title: req.body.postTitle,
     content: req.body.postBody
   });
-  newPost.save();
-  res.redirect("/");
+  newPost.save(function(err) {
+    if (!err) {
+      res.redirect("/");
+    }
+  });
 });
 
 // Handle 404 requests.
