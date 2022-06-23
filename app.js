@@ -29,9 +29,12 @@ const Post = mongoose.model("Post", postSchema);
 // GET routes.
 
 app.get("/", function(req, res) {
-  res.render("home", {
-    homeStartingContent: homeStartingContent,
-    posts: []
+  Post.find({}, function(err, foundPosts) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("home", { posts: foundPosts });
+    }
   });
 });
 
