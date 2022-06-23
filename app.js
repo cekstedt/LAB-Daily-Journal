@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-const _ = require("lodash");
 
 // Setting up imports for use.
 
@@ -50,20 +49,24 @@ app.get("/compose", function(req, res) {
   res.render("compose");
 });
 
-// app.get("/posts/:postName", function(req, res) {
-//   const foundPost = _.find(posts, function(post) {
-//     return _.lowerCase(post.title) === _.lowerCase(req.params.postName);
-//   });
-//
-//   if (foundPost) {
-//     res.render("post", {
-//       postTitle: post.title,
-//       postContent: post.content
-//     });
-//   } else {
-//     res.status(404).render("404");
-//   };
-// });
+app.get("/posts/:postID", function(req, res) {
+  Post.findById(req.params.postID, function(err, foundPost) {
+    if (err) {
+      if (err.name === "BSONTypeError" || err.name === "CastError") {
+        res.status(404).render("404");
+      } else {
+        console.log(err);
+      }
+    } else if (foundPost) {
+      res.render("post", {
+        postTitle: foundPost.title,
+        postContent: foundPost.content
+      });
+    } else {
+      res.status(404).render("404");
+    };
+  });
+});
 
 // POST routes.
 
