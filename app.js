@@ -12,8 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-// mongoose.connect("mongodb+srv://cekstedt:" + process.env.MONGO_PW + "@cluster0.13jgzo4.mongodb.net/todolistDB");
-mongoose.connect("mongodb://localhost:27017/blogDB");
+mongoose.connect("mongodb+srv://cekstedt:" + process.env.MONGO_PW + "@cluster0.13jgzo4.mongodb.net/blogDB");
 
 // Global Variables.
 
