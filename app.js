@@ -12,7 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGO_DB);
+mongoose.connect(process.env.MONGO_DB + "/blogDB");
 
 // Global Variables.
 
