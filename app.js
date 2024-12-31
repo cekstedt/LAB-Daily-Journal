@@ -12,7 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGO_DB + "/blogDB");
+mongoose.connect(process.env.MONGO_URI);
 
 // Global Variables.
 
@@ -63,7 +63,7 @@ app.get("/posts/:postID", function(req, res) {
       });
     } else {
       res.status(404).render("404");
-    };
+    }
   });
 });
 
