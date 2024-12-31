@@ -25,7 +25,7 @@ This is a solution to the [Daily Journal](https://www.udemy.com/course/the-compl
 
 ### Links
 
-- Code URL: [Github](https://github.com/cekstedt/LAB-Todo-List)
+- Code URL: [Github](https://github.com/cekstedt/LAB-Daily-Journal)
 - Live Site URL: [Glitch](https://uncovered-north-leech.glitch.me/)
 - Challenge URL: [Udemy](https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12385030)
 
@@ -38,6 +38,7 @@ This is a solution to the [Daily Journal](https://www.udemy.com/course/the-compl
 - MongoDB
 - Mongoose
 - EJS
+- Bootstrap
 
 ### How to install and run
 
@@ -48,12 +49,12 @@ node -v
 
 Clone into the repo.
 ```
-git clone https://github.com/cekstedt/LAB-Todo-List
+git clone https://github.com/cekstedt/LAB-Daily-Journal
 ```
 
 Navigate into the root project folder and install dependencies.
 ```
-cd LAB-Todo-List/
+cd LAB-Daily-Journal/
 npm install
 ```
 
