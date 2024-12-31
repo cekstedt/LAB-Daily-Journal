@@ -17,7 +17,7 @@ This is a solution to the [Daily Journal](https://www.udemy.com/course/the-compl
 
 ### The challenge
 
-"Learn the basics of working with EJS templates and MongoDB database operations by building your own Todo List web app."
+"Learn the best practices of working with EJS templates and MongoDB database operations by building your own Daily Journal web app."
 
 ### Screenshot
 
