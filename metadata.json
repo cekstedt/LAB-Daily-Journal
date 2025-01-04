@@ -18,6 +18,5 @@
     "mongodb",
     "mongoose"
   ],
-  "status": "complete",
   "priority": "done"
 }
